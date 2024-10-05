@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: controle-financeiro
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    enable:
+      jvm: true
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      sla:
+        http:
+          server:
+            requests: 50ms, 100ms, 200ms, 300ms, 500ms, 1s
+    tags:
+      application: controle-financeiro
+
+info:
+  app:
+    name: "controle-financeiro"
+    description: "Projeto de controle financeiro"
+    version: "1.0.0"
